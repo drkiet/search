@@ -25,6 +25,7 @@ public class DocumentSearch implements Serializable {
 	private IndexesHandler indexesHandler;
 
 	public static DocumentSearch getInstance(String contentFileName, String workspaceFolder) {
+		LOGGER.info("Creating Document Search instance for {} at {}", contentFileName, workspaceFolder);
 		String fullIndexFileName = getFullIndexFileName(contentFileName, workspaceFolder);
 
 		try {
