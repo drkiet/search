@@ -17,6 +17,12 @@ import org.slf4j.LoggerFactory;
 import com.drkiettran.text.TextApp;
 import com.drkiettran.text.model.Document;
 
+/**
+ * Indexing and search text.
+ * 
+ * @author ktran
+ *
+ */
 public class DocumentSearch implements Serializable {
 	private static final long serialVersionUID = 5535612535410645209L;
 	private static final Logger LOGGER = LoggerFactory.getLogger(DocumentSearch.class);
@@ -36,8 +42,7 @@ public class DocumentSearch implements Serializable {
 			serializeIndexes(fullIndexFileName, ds);
 			return ds;
 		} catch (IOException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error("*** ERROR *** {}", e);
 		}
 		return null;
 	}
@@ -62,11 +67,9 @@ public class DocumentSearch implements Serializable {
 		try {
 			loadIndexes();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error("*** ERROR *** {}", e);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			LOGGER.error("*** ERROR *** {}", e);
 		}
 	}
 
